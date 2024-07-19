@@ -18,8 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <div className="min-h-screen flex flex-col justify-center items-center bg-[#151C2F]">
-          <div className="sm:w[600px] md:w-[800px]">
+        <div className="min-h-screen mx-auto flex flex-col justify-center items-center bg-[#151C2F]">
+          <div className="w[400px] md:w-[700px] space-y-4">
             <Navbar />
             {children}
           </div>

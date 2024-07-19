@@ -1,17 +1,14 @@
 import SearchForm from '@/components/SearchForm'
+import UserCardInfo from '@/components/UserCardInfo'
 import React from 'react'
 
 const Home = () => {
   return (
     <>
-      <div>
-        <SearchForm />
-      </div>
-      <div>
-        <article>
-          Descripcion de pagina
-        </article>
-      </div>
+
+      <SearchForm />
+      <UserCardInfo />
+
     </>
   )
 }

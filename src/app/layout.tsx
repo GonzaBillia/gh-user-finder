@@ -16,9 +16,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="">
       <body className={montserrat.className}>
-        <div className="min-h-screen mx-auto flex flex-col justify-center items-center bg-[#151C2F]">
+        <div className="min-h-screen mx-auto flex flex-col justify-center items-center bg-slate-100 dark:bg-[#151C2F]">
           <div className="w-[400px] md:w-[500px] xl:w-[900px] space-y-4">
             <Navbar />
             {children}

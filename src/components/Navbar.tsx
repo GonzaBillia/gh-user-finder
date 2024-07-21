@@ -7,18 +7,26 @@ import DarkIcon from '@/components/icons/DarkIcon'
 const Navbar = () => {
 
     const initialTheme = (): "light" | "dark" => {
-        if(localStorage.getItem("theme")){
-            return localStorage.getItem("theme") as "light" | "dark"
-        }else {
-            return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+        if(typeof window !== "undefined") {
+            if(localStorage.getItem("theme")){
+                return localStorage.getItem("theme") as "light" | "dark"
+            }else {
+                return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+            }
         }
+        return "dark"
     }
 
+    const [hasMounted, setHasMounted] = useState(false)
     const [theme, setTheme] = useState<"light" | "dark">(initialTheme)
 
     const handleTheme = () => {
         theme === "light" ? setTheme("dark") : setTheme("light")
     }
+
+    useEffect(() => {
+        setHasMounted(true)
+    },[])
 
     useEffect(() => {
         if(theme === "dark"){
@@ -28,6 +36,8 @@ const Navbar = () => {
         }
         localStorage.setItem("theme", theme)
     },[theme])
+
+    if(!hasMounted) return <h1 className='text-3xl font-bold text-[#151C2F] dark:text-white'>Loading...</h1>
 
     return (
         <header className='flex justify-between items-center px-2'>
